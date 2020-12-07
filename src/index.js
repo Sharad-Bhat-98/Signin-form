@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import SignupForm from './components/signupform';
+import App from './App';
 
 
 ReactDOM.render(
   <React.StrictMode>
-    <SignupForm />
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );

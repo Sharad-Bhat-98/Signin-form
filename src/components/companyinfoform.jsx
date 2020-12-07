@@ -30,7 +30,7 @@ const CompanyInfo = (props) => {
         <h2 Style='color:blue'>Welcome {header} </h2>
 
         <Grid item xs={12}>
-            <TextField style={{ minWidth: 325 }}
+            <TextField style={{ minWidth: 325, maxWidth: 325 }}
                 label='Company Name'
                 placeholder='Enter Company Name'
                 onChange={handleChangeCompany}
@@ -42,7 +42,7 @@ const CompanyInfo = (props) => {
         </Grid>
 
         <Grid item xs={12}>
-            <TextField style={{ minWidth: 325 }}
+            <TextField style={{ minWidth: 325, maxWidth: 325 }}
                 label='Company Location'
                 placeholder='Enter Company Location'
                 onChange={handleChangeCompany}
@@ -54,7 +54,7 @@ const CompanyInfo = (props) => {
         </Grid>
 
         <Grid item xs={12}>
-            <FormControl variant="filled" style={{ minWidth: 325 }}>
+            <FormControl variant="filled" style={{ minWidth: 325, maxWidth: 325 }}>
                 <InputLabel id="demo-simple-select-filled-label" style={{ fontSize: 18 }}>What does Your Company Do</InputLabel>
                 <Select
                     labelId="demo-simple-select-filled-label"
@@ -66,13 +66,13 @@ const CompanyInfo = (props) => {
                 >
 
                     <MenuItem value={'Farming'}>Farming</MenuItem>
-                    <MenuItem value={'Retaling'}>Retailing</MenuItem>
+                    <MenuItem value={'Food Manufacturer'}>Food Manufacturer</MenuItem>
                 </Select>
             </FormControl>
         </Grid>
 
         <Grid item xs={12}>
-            <Button variant="contained" color="primary" disableElevation onClick={() => nextStep()} disabled={handledisabled()} > Submit</Button>
+            <Button variant="contained" color="primary" disableElevation onClick={() => nextStep()} disabled={handledisabled()} > Next</Button>
         </Grid>
     </Grid>
     )
