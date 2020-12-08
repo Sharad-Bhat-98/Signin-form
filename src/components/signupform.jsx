@@ -21,7 +21,7 @@ const SignupForm = (props) => {
                 direction="column"
                 alignItems="center"
                 justify="center"  >
-                <h2 Style='color:blue'>Sign-Up / PersonalInfo</h2>
+                <h2 Style='color:blue'>Sign-Up / Personal Info</h2>
 
                 <Grid item xs={12}>
                     <TextField style={{ minWidth: 325, maxWidth: 325 }}

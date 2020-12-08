@@ -130,6 +130,7 @@ const App = () => {
         const img = e.target.files[0]
         SetFoodManufacturer({ ...foodmanufacturer, ProductImage: img })
     }
+
     const handledisabledfood = () => {
         if (ProductName === null && ProductDescription === null) {
             return false
