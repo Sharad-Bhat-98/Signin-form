@@ -88,7 +88,7 @@ const SignupForm = (props) => {
                                 onChange={(e) => handleSelected(e)}
                                 color='primary' />
                         }
-                        label="I have Aggred To The Trems Of Services"
+                        label="I have Agreed To The Trems Of Services"
                     />
                 </Grid>
 
