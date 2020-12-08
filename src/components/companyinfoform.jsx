@@ -8,17 +8,10 @@ import Select from '@material-ui/core/Select';
 import InputLabel from '@material-ui/core/InputLabel';
 
 const CompanyInfo = (props) => {
-    const { handleChangeCompany, header, nextStep } = props
+    const { handleChangeCompany, header, nextStep, handledisabled } = props
     const { companyname, companylocation, companyoccuption } = props.error
 
-    const handledisabled = () => {
-        if (companyname === null && companylocation === null && companyoccuption === null) {
-            return false
-        } else {
-            return true
-        }
 
-    }
 
     return (<Grid
         container

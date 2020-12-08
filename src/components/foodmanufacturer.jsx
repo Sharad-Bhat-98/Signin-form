@@ -19,17 +19,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const FoodManufacturer = (props) => {
-    const { name, handleChangeFood, handleimageupload, nextStep } = props
+    const { name, handleChangeFood, handleimageupload, nextStep, handledisabledfood } = props
     const classes = useStyles();
     const { ProductName, ProductDescription } = props.Error
 
-    const handledisabled = () => {
-        if (ProductName === null && ProductDescription === null) {
-            return false
-        } else {
-            return true
-        }
-    }
+
 
     return (<Grid
         container
@@ -111,7 +105,7 @@ const FoodManufacturer = (props) => {
         </Grid>
 
         <Grid item xs={12}>
-            <Button variant="contained" color="primary" disableElevation size='large' disabled={handledisabled()} onClick={() => nextStep()}> next</Button>
+            <Button variant="contained" color="primary" disableElevation size='large' disabled={handledisabledfood()} onClick={() => nextStep()}> next</Button>
 
         </Grid>
 

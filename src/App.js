@@ -8,6 +8,7 @@ import SignupForm from './components/signupform'
 
 
 const App = () => {
+    //react states
     const [selected, setSelected] = React.useState();
 
     const [sign, Setsignin] = useState({
@@ -44,14 +45,14 @@ const App = () => {
         ProductImage: ''
 
     })
-
+    //destructing the values in the states
     const { step, name, email, number, password } = sign
     const { companyname, companylocation, companyoccuption } = companyinfo
     const info = { companyname, companylocation, companyoccuption }
     const values = { name, email, number, password }
-    //  const { ProductName, ProductDescription, ProductImage, VideoLink, VideoLinkDescription } = foodmanufacturer
-    //const FoodManuData = { ProductName, ProductDescription, ProductImage, VideoLink, VideoLinkDescription }
+    const { ProductName, ProductDescription } = Error
 
+    //validation of fields using JOI
     const schema = {
         name: Joi.string().required().min(6),
         password: Joi.string().required().min(8),
@@ -73,6 +74,7 @@ const App = () => {
         Setsignin({ ...sign, step: step + 1 })
     }
 
+    //sign up form functions
     const handleSelected = (e) => {
         setSelected(e.target.checked)
     }
@@ -85,7 +87,16 @@ const App = () => {
         const res = error ? error.details[0].message : null
         SetError({ ...Error, [e.target.name]: res, })
     }
+    const handlesubmit = () => {
 
+        if (selected === true && Error.name == null && Error.password == null && Error.email == null && Error.number == null) {
+            return false
+        } else {
+            return true
+        }
+    }
+
+    //company info form functions
     const handleChangeCompany = (e) => {
         SetCompanyInfo({ ...companyinfo, [e.target.name]: e.target.value })
         const obj = { [e.target.name]: e.target.value }
@@ -95,6 +106,16 @@ const App = () => {
         SetError({ ...Error, [e.target.name]: res })
 
     }
+    const handledisabled = () => {
+        if (companyname === null && companylocation === null && companyoccuption === null) {
+            return false
+        } else {
+            return true
+        }
+
+    }
+
+    //food manufacturer form functions
     const handleChangeFood = (e) => {
         SetFoodManufacturer({ ...foodmanufacturer, [e.target.name]: e.target.value })
         const obj = { [e.target.name]: e.target.value }
@@ -109,24 +130,15 @@ const App = () => {
         const img = e.target.files[0]
         SetFoodManufacturer({ ...foodmanufacturer, ProductImage: img })
     }
-
-
-
-    const handlesubmit = () => {
-
-        if (selected === true && Error.name == null && Error.password == null && Error.email == null && Error.number == null) {
+    const handledisabledfood = () => {
+        if (ProductName === null && ProductDescription === null) {
             return false
         } else {
             return true
         }
     }
 
-    console.log(foodmanufacturer)
-    console.log(companyinfo);
-    console.log(sign);
-
-
-
+    //conditional Rendering
     if (step === 1) {
         return (
             <SignupForm
@@ -147,7 +159,9 @@ const App = () => {
                 handleChangeCompany={handleChangeCompany}
                 header={name}
                 nextStep={nextStep}
-                error={Error} />
+                error={Error}
+                handledisabled={handledisabled}
+            />
         )
     } else if (step === 3 && companyoccuption === 'Food Manufacturer') {
         return (<FoodManufacturer
@@ -156,6 +170,8 @@ const App = () => {
             Error={Error}
             handleimageupload={handleimageupload}
             nextStep={nextStep}
+            handledisabledfood={handledisabledfood}
+
 
         />)
     } else {
