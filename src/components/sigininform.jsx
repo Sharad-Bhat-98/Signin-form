@@ -31,8 +31,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const schema = {
-    firstname: Joi.string().required().min(6),
-    lastname: Joi.string().required().min(6),
+    firstname: Joi.string().required(),
+    lastname: Joi.string().required(),
     password: Joi.string().required().min(8),
     email: Joi.string().required().email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } }),
 }

@@ -55,7 +55,7 @@ const App = () => {
     //validation of fields using JOI
     const schema = {
         name: Joi.string().required().min(6),
-        password: Joi.string().required().min(8),
+        password: Joi.string().required(),
         email: Joi.string().required()
             .email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } }),
         number: Joi.string().required().max(10).min(10),
