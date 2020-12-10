@@ -89,7 +89,7 @@ const App = () => {
     }
     const handlesubmit = () => {
 
-        if (selected === true && Error.name == null && Error.password == null && Error.email == null && Error.number == null) {
+        if (selected === true && Error.name == null && Error.password == null && Error.number == null) {
             return false
         } else {
             return true
@@ -107,7 +107,7 @@ const App = () => {
 
     }
     const handledisabled = () => {
-        if (companyname === null && companylocation === null && companyoccuption === null) {
+        if (Error.companyname === null && Error.companylocation === null && Error.companyoccuption === null) {
             return false
         } else {
             return true

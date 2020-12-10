@@ -47,8 +47,6 @@ const SignupForm = (props) => {
                         defaultValue={email}
                         variant="outlined"
                         type='email'
-                        error={props.Error.email ? true : false}
-                        helperText={props.Error.email}
                     />
                 </Grid>
 
@@ -63,12 +61,13 @@ const SignupForm = (props) => {
                         type='number'
                         error={props.Error.number ? true : false}
                         helperText={props.Error.number}
+                        required='true'
                     />
                 </Grid>
 
                 <Grid item xs={12}>
                     <TextField style={{ minWidth: 325, maxWidth: 325 }}
-                        placeholder='enter password'
+                        placeholder='Enter Password'
                         label=' password'
                         name='password'
                         onChange={handleChange}
@@ -77,6 +76,7 @@ const SignupForm = (props) => {
                         type='password'
                         error={props.Error.password ? true : false}
                         helperText={props.Error.password}
+                        required
                     />
                 </Grid>
 
@@ -88,7 +88,7 @@ const SignupForm = (props) => {
                                 onChange={(e) => handleSelected(e)}
                                 color='primary' />
                         }
-                        label="I have Agreed To The Trems Of Services"
+                        label="I have agreed to the terms of services"
                     />
                 </Grid>
 
