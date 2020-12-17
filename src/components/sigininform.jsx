@@ -233,7 +233,7 @@ const SigninFrom = () => {
                 </FormControl>
             </Grid>
             <Grid item xs={12}>
-                <Link to='/signup'>  <Button variant="contained" color="primary" disableElevation size='large' type='submit' disabled={handleDisabled()}> Submit</Button> </Link>
+                <Button variant="contained" color="primary" disableElevation size='large' type='submit' disabled={handleDisabled()}> <Link to='/signup' disabled="true">Submit</Link></Button>
 
             </Grid>
         </Grid>
