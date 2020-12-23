@@ -3,6 +3,38 @@ import CompanyInfo from './components/companyinfoform';
 import FoodManufacturer from './components/foodmanufacturer';
 import Joi from 'joi-browser'
 import SignupForm from './components/signupform'
+import { green } from "@material-ui/core/colors"
+import purple from '@material-ui/core/colors/purple';
+import { makeStyles, ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+
+const useStyles = makeStyles((theme) => ({
+    root: {
+        '& > *': {
+            margin: theme.spacing(1),
+        },
+    },
+    input: {
+        display: 'none',
+    },
+    button: {
+        borderRadius: 25
+    }
+}));
+const theme = createMuiTheme({
+    typography: {
+        fontFamily: [
+            'Roboto',
+            'sans-serif'
+
+        ].join(','),
+
+    },
+    palette: {
+        primary: {
+            main: green[500]
+        },
+    }
+})
 
 
 
@@ -29,7 +61,9 @@ const App = () => {
         ProductDescription: '',
         ProductImage: '',
         VideoLink: '',
-        VideoLinkDescription: ''
+        VideoLinkDescription: '',
+        ProductIngredients: '',
+        NutritionalInfo: ''
     })
 
     const [Error, SetError] = useState({
@@ -42,7 +76,10 @@ const App = () => {
         companyoccuption: '',
         ProductName: '',
         ProductDescription: '',
-        ProductImage: ''
+        ProductImage: '',
+        ProductDescription: '',
+        ProductIngredients: ''
+
 
     })
     //destructing the values in the states
@@ -66,7 +103,10 @@ const App = () => {
         ProductDescription: Joi.string().required().min(10),
         ProductImage: Joi.required(),
         VideoLink: Joi.string(),
-        VideoLinkDescription: Joi.string()
+        VideoLinkDescription: Joi.string(),
+        ProductIngredients: Joi.string(),
+        NutritionalInfo: Joi.string(),
+
     }
 
     const nextStep = () => {
@@ -150,6 +190,8 @@ const App = () => {
                 selected={selected}
                 handleSelected={handleSelected}
                 Error={Error}
+                theme={theme}
+                useStyles={useStyles}
 
             />)
 
@@ -162,6 +204,8 @@ const App = () => {
                 nextStep={nextStep}
                 error={Error}
                 handledisabled={handledisabled}
+                theme={theme}
+                useStyles={useStyles}
             />
         )
     } else if (step === 3 && companyoccuption === 'Food Manufacturer') {
@@ -172,6 +216,8 @@ const App = () => {
             handleimageupload={handleimageupload}
             nextStep={nextStep}
             handledisabledfood={handledisabledfood}
+            theme={theme}
+            useStyles={useStyles}
 
 
         />)

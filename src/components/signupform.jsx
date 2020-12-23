@@ -4,24 +4,30 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import Checkbox from '@material-ui/core/Checkbox';
+import { ThemeProvider } from '@material-ui/core/styles';
+import '../App.css'
+import Typography from '@material-ui/core/Typography';
+
 
 
 const SignupForm = (props) => {
     console.log(props)
 
-    const { handleChange, nextStep, handlesubmit, handleSelected, selected } = props
+    const { handleChange, nextStep, handlesubmit, handleSelected, selected, theme, useStyles } = props
     const { name, email, number, password } = props.values
+    const classes = useStyles();
 
 
     return (
-        <React.Fragment>
+
+        <ThemeProvider theme={theme}>
             <Grid
                 container
                 spacing={5}
                 direction="column"
                 alignItems="center"
-                justify="center"  >
-                <h2 Style='color:blue'>Sign-Up / Personal Info</h2>
+                justify="center"  ><br></br><br></br>
+                <Typography variant='h5' color='primary'>Sign-Up / Personal Info</Typography>
 
                 <Grid item xs={12}>
                     <TextField style={{ minWidth: 325, maxWidth: 325 }}
@@ -93,10 +99,12 @@ const SignupForm = (props) => {
                 </Grid>
 
                 <Grid item xs={12}>
-                    <Button variant="contained" color="primary" disableElevation onClick={() => nextStep()} disabled={handlesubmit()} size='large' type='submit'> next</Button>
+                    <Button variant="contained" color="primary" disableElevation onClick={() => nextStep()} disabled={handlesubmit()} size='large' type='submit' className={classes.button}> next</Button>
                 </Grid>
             </Grid>
-        </React.Fragment>
+        </ThemeProvider>
+
+
     )
 }
 
