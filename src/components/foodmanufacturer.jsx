@@ -4,9 +4,7 @@ import TextField from '@material-ui/core/TextField';
 import { Button } from '@material-ui/core';
 import PhotoCamera from '@material-ui/icons/PhotoCamera'
 import { ThemeProvider } from '@material-ui/core/styles';
-import '../App.css'
-import { green } from "@material-ui/core/colors"
-import purple from '@material-ui/core/colors/purple';
+
 import Typography from '@material-ui/core/Typography';
 
 

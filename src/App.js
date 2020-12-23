@@ -4,8 +4,7 @@ import FoodManufacturer from './components/foodmanufacturer';
 import Joi from 'joi-browser'
 import SignupForm from './components/signupform'
 import { green } from "@material-ui/core/colors"
-import purple from '@material-ui/core/colors/purple';
-import { makeStyles, ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import { makeStyles, createMuiTheme } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -17,7 +16,11 @@ const useStyles = makeStyles((theme) => ({
         display: 'none',
     },
     button: {
-        borderRadius: 25
+        borderRadius: 25,
+        paddingLeft: 30,
+        paddingRight: 30,
+        color: 'text.primary'
+
     }
 }));
 const theme = createMuiTheme({
@@ -77,7 +80,6 @@ const App = () => {
         ProductName: '',
         ProductDescription: '',
         ProductImage: '',
-        ProductDescription: '',
         ProductIngredients: ''
 
 
