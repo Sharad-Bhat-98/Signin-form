@@ -5,6 +5,7 @@ import Joi from 'joi-browser'
 import SignupForm from './components/signupform'
 import { green } from "@material-ui/core/colors"
 import { makeStyles, createMuiTheme } from '@material-ui/core/styles';
+import axios from 'axios';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -181,6 +182,20 @@ const App = () => {
         }
     }
 
+    const submitData = () => {
+        const userData = {
+            sign: sign,
+            companyinfo: companyinfo,
+            foodmanufacturer: foodmanufacturer
+        }
+        axios.post(``, { userData })
+            .then(res => {
+                console.log(res)
+            })
+            .catch(console.log('error'))
+
+    }
+
     //conditional Rendering
     if (step === 1) {
         return (
@@ -220,6 +235,7 @@ const App = () => {
             handledisabledfood={handledisabledfood}
             theme={theme}
             useStyles={useStyles}
+            submitData={submitData}
 
 
         />)

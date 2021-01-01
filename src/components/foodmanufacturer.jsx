@@ -12,7 +12,7 @@ import Typography from '@material-ui/core/Typography';
 
 
 const FoodManufacturer = (props) => {
-    const { name, handleChangeFood, handleimageupload, nextStep, handledisabledfood, theme, useStyles } = props
+    const { name, handleChangeFood, handleimageupload, nextStep, handledisabledfood, theme, useStyles, submitData } = props
     const { ProductName, ProductDescription } = props.Error
     const classes = useStyles();
 
@@ -128,7 +128,7 @@ const FoodManufacturer = (props) => {
                     </Grid>
 
                     <Grid item xs={12}>
-                        <Button variant="contained" color="primary" disableElevation size='large' disabled={handledisabledfood()} onClick={() => nextStep()} className={classes.button}> next</Button>
+                        <Button variant="contained" color="primary" disableElevation size='large' disabled={handledisabledfood()} onClick={() => submitData()} className={classes.button}> next</Button>
 
                     </Grid>
 
