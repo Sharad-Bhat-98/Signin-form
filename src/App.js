@@ -57,7 +57,7 @@ const App = () => {
     const [companyinfo, SetCompanyInfo] = useState({
         companyname: '',
         companylocation: '',
-        companyoccupation: ''
+        companyoccuption: ''
     })
 
     const [foodmanufacturer, SetFoodManufacturer] = useState({

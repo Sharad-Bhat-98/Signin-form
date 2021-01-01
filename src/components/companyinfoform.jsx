@@ -63,6 +63,7 @@ const CompanyInfo = (props) => {
 
                             <MenuItem value={'Farming'}>Farming</MenuItem>
                             <MenuItem value={'Food Manufacturer'}>Food Manufacturer</MenuItem>
+                            <MenuItem value={'testing'}>dcdcdr</MenuItem>
                         </Select>
                     </FormControl>
                 </Grid>
